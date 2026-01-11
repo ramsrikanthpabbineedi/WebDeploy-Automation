@@ -1,0 +1,26 @@
+- hosts: web
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Deploy Website files
+      copy:
+        src: webpage/
+        dest: /var/www/html/
+        owner: www-data
+        group: www-data
+        mode: '0755'
+
