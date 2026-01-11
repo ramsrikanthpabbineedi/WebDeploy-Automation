@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "📦 Checking out source code..."
                 git branch: 'main',
-                    url: 'https://github.com/ramsrikanthpabbineedi/new-project.git',
+                    url: 'https://github.com/ramsrikanthpabbineedi/WebDeploy-Automation.git',
                     credentialsId: 'github-pat'
             }
         }
